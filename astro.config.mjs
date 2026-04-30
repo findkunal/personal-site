@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourdomain.com',
+  site: 'https://personal-site-fawn-kappa.vercel.app',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'gu'],
