@@ -47,6 +47,14 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFL8DMMYGQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WFL8DMMYGQ');
+    </script>
   </head>
   <body>
     <nav class="site-nav">
