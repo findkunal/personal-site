@@ -1,0 +1,35 @@
+﻿---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.lang === 'gu' && !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug.replace(/^gu\//, '') },
+    props: { post },
+  }));
+}
+
+type Props = { post: CollectionEntry<'blog'> };
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formatted = post.data.pubDate.toLocaleDateString('gu-IN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<BaseLayout lang="gu" title={`${post.data.title} — કુણાલ`} description={post.data.description}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <time datetime={post.data.pubDate.toISOString()}>{formatted}</time>
+    {post.data.tags.length > 0 && (
+      <p class="post-meta">{post.data.tags.map((t) => `#${t}`).join(' ')}</p>
+    )}
+    <Content />
+  </article>
+
+  <hr />
+  <p><a href="/gu/blog/">&larr; બધી પોસ્ટ્સ</a></p>
+</BaseLayout>

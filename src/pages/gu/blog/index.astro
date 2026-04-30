@@ -1,0 +1,27 @@
+﻿---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+
+const posts = (
+  await getCollection('blog', ({ data }) => data.lang === 'gu' && !data.draft)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout lang="gu" title="બ્લોગ &mdash; કુણાલ" description="બધી ગુજરાતી પોસ્ટ્સ.">
+  <h1>બ્લોગ</h1>
+  {posts.length === 0 ? (
+    <p><em>હજી કોઈ પોસ્ટ નથી.</em></p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <PostCard
+          href={`/gu/blog/${post.slug.replace(/^gu\//, '')}/`}
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          lang="gu"
+        />
+      ))}
+    </ul>
+  )}
+</BaseLayout>

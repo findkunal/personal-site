@@ -1,0 +1,129 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-accent: #2563eb;
+  --color-border: #e2e8f0;
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[lang='en'] body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+html[lang='gu'] body {
+  font-family: 'Noto Sans Gujarati', 'Inter', system-ui, sans-serif;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+
+nav.site-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav.site-nav .links a {
+  margin-left: 1rem;
+  color: var(--color-text);
+}
+
+nav.site-nav .brand {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-list h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.post-list time,
+.post-meta {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+article time {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+article p {
+  margin: 1rem 0;
+}
+
+article pre {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}

@@ -1,0 +1,22 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  lang: 'en' | 'gu';
+}
+
+const { href, title, description, pubDate, lang } = Astro.props;
+const locale = lang === 'en' ? 'en-US' : 'gu-IN';
+const formatted = pubDate.toLocaleDateString(locale, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<li>
+  <h3><a href={href}>{title}</a></h3>
+  <time datetime={pubDate.toISOString()}>{formatted}</time>
+  <p>{description}</p>
+</li>
