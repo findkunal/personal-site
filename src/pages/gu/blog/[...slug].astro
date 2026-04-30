@@ -1,6 +1,7 @@
 ﻿---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Giscus from '../../../components/Giscus.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'gu' && !data.draft);
@@ -29,6 +30,8 @@ const formatted = post.data.pubDate.toLocaleDateString('gu-IN', {
     )}
     <Content />
   </article>
+
+  <Giscus lang="gu" />
 
   <hr />
   <p><a href="/gu/blog/">&larr; બધી પોસ્ટ્સ</a></p>
