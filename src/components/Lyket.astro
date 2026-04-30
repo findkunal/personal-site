@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: string;
+  namespace: string;
+}
+
+const { id, namespace } = Astro.props;
+
+// Get your free API key at https://lyket.dev and replace the placeholder
+const API_KEY = 'REPLACE_WITH_LYKET_API_KEY';
+---
+
+<div class="lyket-wrapper">
+  <div
+    data-lyket-type="updown"
+    data-lyket-id={id}
+    data-lyket-namespace={namespace}
+  ></div>
+</div>
+
+<script is:inline src={`https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=${API_KEY}`}></script>

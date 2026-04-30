@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Giscus from '../../../components/Giscus.astro';
+import Lyket from '../../../components/Lyket.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'en' && !data.draft);
@@ -30,6 +31,8 @@ const formatted = post.data.pubDate.toLocaleDateString('en-US', {
     )}
     <Content />
   </article>
+
+  <Lyket id={post.slug.replace(/^en\//, '')} namespace="en" />
 
   <Giscus lang="en" />
 
