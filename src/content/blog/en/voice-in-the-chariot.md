@@ -85,5 +85,3 @@ When was the last time your Krishna covered the sun for you, and did you thank h
 If you wrote down everything your inner voice told you for one week, would you trust the author?
 
 And if Arjuna's chariot is your mind, who exactly has been driving?
-
-And if Arjuna's chariot is your mind — who, exactly, has been driving?
