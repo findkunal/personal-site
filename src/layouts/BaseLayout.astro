@@ -1,5 +1,6 @@
 ﻿---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -69,7 +70,7 @@ const gaConfigJson = JSON.stringify(gaConfig);
       rel="stylesheet"
     />
 
-    <!-- Google Analytics (GA4). Honours Do Not Track. -->
+    <!-- Google Analytics (GA4). Honours Do Not Track and Consent Mode v2. -->
     <script is:inline define:vars={{ gaConfigJson }}>
       (function () {
         try {
@@ -79,13 +80,26 @@ const gaConfigJson = JSON.stringify(gaConfig);
             navigator.msDoNotTrack === '1';
           if (dnt) return;
 
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+
+          // Consent Mode v2: default-deny until the user opts in.
+          // The cookie consent banner will call gtag('consent', 'update', ...) on accept.
+          var prior = null;
+          try { prior = localStorage.getItem('cookie-consent-v1'); } catch (_) {}
+          window.gtag('consent', 'default', {
+            analytics_storage: prior === 'accept' ? 'granted' : 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500,
+          });
+
           var s = document.createElement('script');
           s.async = true;
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WFL8DMMYGQ';
           document.head.appendChild(s);
 
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function () { window.dataLayer.push(arguments); };
           window.gtag('js', new Date());
           window.gtag('config', 'G-WFL8DMMYGQ', JSON.parse(gaConfigJson));
         } catch (e) { /* swallow */ }
@@ -105,8 +119,14 @@ const gaConfigJson = JSON.stringify(gaConfig);
     </main>
 
     <footer>
-      <p>&copy; {new Date().getFullYear()} Kunal &middot; <a href={`/${lang}/rss.xml`}>RSS</a></p>
+      <p>
+        &copy; {new Date().getFullYear()} Kunal &middot;
+        <a href={`/${lang}/rss.xml`}>RSS</a> &middot;
+        <a href={`/${lang}/privacy/`}>{lang === 'en' ? 'Privacy' : 'ગોપનીયતા'}</a>
+      </p>
     </footer>
+
+    <CookieConsent lang={lang} />
 
     <!-- GA enrichment: outbound link clicks + scroll depth milestones. -->
     <script is:inline>
