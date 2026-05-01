@@ -8,6 +8,9 @@ const { lang } = Astro.props;
 const REPO_ID = 'R_kgDOSQW60w';
 // Get CATEGORY_ID from: giscus.app → type "findkunal/personal-site" → copy data-category-id
 const CATEGORY_ID = 'DIC_kwDOSQW6084C8DoT';
+
+// Giscus doesn't support Gujarati ('gu') as a UI language, so fall back to English.
+const giscusLang = lang === 'gu' ? 'en' : lang;
 ---
 
 <section class="giscus-wrapper">
@@ -23,7 +26,7 @@ const CATEGORY_ID = 'DIC_kwDOSQW6084C8DoT';
     data-emit-metadata="0"
     data-input-position="top"
     data-theme="preferred_color_scheme"
-    data-lang={lang}
+    data-lang={giscusLang}
     crossorigin="anonymous"
     async
   ></script>
