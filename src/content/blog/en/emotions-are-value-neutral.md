@@ -1,6 +1,6 @@
 ---
 title: "Your Emotions Aren't the Problem. The Story Behind Them Is."
-description: "Emotions don't carry meaning on their own — we hand it to them. A look at why separating the feeling from its cause changes how we act, decide, and live."
+description: "Emotions don't carry meaning on their own. We hand it to them. A look at why separating the feeling from its cause changes how we act, decide, and live."
 pubDate: 2026-04-30
 lang: en
 tags: ["philosophy", "psychology", "self-awareness"]
@@ -24,13 +24,13 @@ Think about the last time you felt anxious before a meeting. Most of us treat th
 - You respect the people in the room and want to do well. (That's not anxiety, that's *care* wearing a scary costume.)
 - Your boss reminds you of a parent you could never please. (Now we're talking. That has nothing to do with this meeting.)
 
-Same emotion. Three completely different fires. Three completely different responses. If you treat them all the same — *just calm down, it's only anxiety* — you've thrown away the most important signal your nervous system was trying to send.
+Same emotion. Three completely different fires. Three completely different responses. If you treat them all the same (*just calm down, it's only anxiety*), you've thrown away the most important signal your nervous system was trying to send.
 
 ## A few ordinary examples
 
 **The friend who got the promotion.** You feel a quick, ugly little pinch when they tell you. Most people immediately judge themselves: *I'm a bad friend, I'm jealous, what's wrong with me.* But the pinch is value-neutral. Sit with it for a second. Maybe it's a reminder that you've been avoiding a hard conversation about your own career. Maybe it's grief for a path you didn't take. Maybe it's just tiredness. The feeling didn't betray you. It pointed at something. Your job is to follow the finger, not bite it.
 
-**The partner who's "fine."** They say they're fine. They are clearly not fine. You feel that familiar tightness in your chest. If you act on the *emotion*, you snap, withdraw, or over-apologise. If you pause for the *reason*, you might find it's not even about them — it's the unanswered email from your manager, the sleep you didn't get, an old wound this situation is poking at.
+**The partner who's "fine."** They say they're fine. They are clearly not fine. You feel that familiar tightness in your chest. If you act on the *emotion*, you snap, withdraw, or over-apologise. If you pause for the *reason*, you might find it's not even about them. It's the unanswered email from your manager, the sleep you didn't get, an old wound this situation is poking at.
 
 **The 11 p.m. text.** You read it. You feel a flash of anger. You start typing a paragraph. Stop. The anger is real, but is it *about* this text, or about the seventeen other things this person has done that you never addressed? The text is a spark. The kindling has been there for months. Reply to the spark and you're going to burn down the wrong house.
 
@@ -52,7 +52,7 @@ The moment you decide an emotion is *value-neutral until you find its cause*, a 
 
 Most of us don't have one. Not consciously. We carry a fuzzy, inherited bundle of beliefs from parents, school, religion, breakups, embarrassments, and the last podcast we listened to, and we call it *intuition*. Intuition is great when the question is small. When the question is *what is this feeling actually about*, intuition is exactly the thing the feeling has hijacked.
 
-The yardstick has to live outside the moment. Mine is just a short list — what I actually believe about honesty, work, family, time, and how I want to treat people on a bad day. Nothing fancy. The act of writing it down is most of the value: **the harder something is to articulate, the less clarity you have about it.** Once it's on paper, the next emotional spike has something concrete to push against. *Is this feeling pulling me toward those things, or away from them?* That's a question you can actually answer. *Should I be feeling this?* isn't.
+The yardstick has to live outside the moment. Mine is just a short list: what I actually believe about honesty, work, family, time, and how I want to treat people on a bad day. Nothing fancy. The act of writing it down is most of the value: **the harder something is to articulate, the less clarity you have about it.** Once it's on paper, the next emotional spike has something concrete to push against. *Is this feeling pulling me toward those things, or away from them?* That's a question you can actually answer. *Should I be feeling this?* isn't.
 
 ## So what's the takeaway?
 
@@ -67,7 +67,7 @@ Emotions are not your character. They're not even really *yours* in the way you 
 
 A few questions I've been sitting with. Maybe sit with them too:
 
-1. The last time you reacted in a way you regretted — was it the *emotion* you regretted, or the *story* you told yourself about it in that moment?
+1. The last time you reacted in a way you regretted: was it the *emotion* you regretted, or the *story* you told yourself about it in that moment?
 2. If you had to write down, in one paragraph, the values you'd actually want to measure your feelings against, what would honestly be in it? Not what *should* be. What is.
 3. Is there an emotion in your life right now that you've been treating as a problem, when it's actually a messenger you haven't let finish its sentence?
 4. When you feel something strongly, who taught you to interpret it that way? Are they still someone you'd take advice from?
