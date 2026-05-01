@@ -7,7 +7,7 @@ const posts = (
   await getCollection('blog', ({ data }) => data.lang === 'gu' && !data.draft)
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout lang="gu" title="બ્લોગ &mdash; કુણાલ" description="બધી ગુજરાતી પોસ્ટ્સ.">
+<BaseLayout lang="gu" pageType="blog-index" title="બ્લોગ &mdash; કુણાલ" description="બધી ગુજરાતી પોસ્ટ્સ.">
   <h1>બ્લોગ</h1>
   {posts.length === 0 ? (
     <p><em>હજી કોઈ પોસ્ટ નથી.</em></p>

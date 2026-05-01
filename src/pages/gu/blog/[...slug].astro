@@ -22,7 +22,14 @@ const formatted = post.data.pubDate.toLocaleDateString('gu-IN', {
   day: 'numeric',
 });
 ---
-<BaseLayout lang="gu" title={`${post.data.title} — કુણાલ`} description={post.data.description}>
+<BaseLayout
+  lang="gu"
+  pageType="blog-post"
+  postSlug={post.slug.replace(/^gu\//, '')}
+  postTags={post.data.tags}
+  title={`${post.data.title} — કુણાલ`}
+  description={post.data.description}
+>
   <article>
     <h1>{post.data.title}</h1>
     <time datetime={post.data.pubDate.toISOString()}>{formatted}</time>

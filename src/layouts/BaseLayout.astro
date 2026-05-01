@@ -5,14 +5,36 @@ interface Props {
   title: string;
   description?: string;
   lang: 'en' | 'gu';
+  pageType?: 'home' | 'blog-index' | 'blog-post' | 'other';
+  postSlug?: string;
+  postTags?: string[];
 }
 
-const { title, description = '', lang } = Astro.props;
+const {
+  title,
+  description = '',
+  lang,
+  pageType = 'other',
+  postSlug,
+  postTags = [],
+} = Astro.props;
 const otherLang = lang === 'en' ? 'gu' : 'en';
 const otherLabel = lang === 'en' ? 'ગુજરાતી' : 'English';
 const homeLabel = lang === 'en' ? 'Home' : 'ઘર';
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+// Build GA config object server-side so we don't ship the logic to every client.
+const gaConfig: Record<string, unknown> = {
+  content_group: pageType,
+  content_language: lang,
+};
+if (pageType === 'blog-post' && postSlug) {
+  gaConfig.post_slug = postSlug;
+  gaConfig.post_language = lang;
+  if (postTags.length > 0) gaConfig.post_tags = postTags.join(',');
+}
+const gaConfigJson = JSON.stringify(gaConfig);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -46,13 +68,28 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFL8DMMYGQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WFL8DMMYGQ');
+
+    <!-- Google Analytics (GA4). Honours Do Not Track. -->
+    <script is:inline define:vars={{ gaConfigJson }}>
+      (function () {
+        try {
+          var dnt =
+            navigator.doNotTrack === '1' ||
+            window.doNotTrack === '1' ||
+            navigator.msDoNotTrack === '1';
+          if (dnt) return;
+
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WFL8DMMYGQ';
+          document.head.appendChild(s);
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-WFL8DMMYGQ', JSON.parse(gaConfigJson));
+        } catch (e) { /* swallow */ }
+      })();
     </script>
   </head>
   <body>
@@ -70,5 +107,54 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
     <footer>
       <p>&copy; {new Date().getFullYear()} Kunal &middot; <a href={`/${lang}/rss.xml`}>RSS</a></p>
     </footer>
+
+    <!-- GA enrichment: outbound link clicks + scroll depth milestones. -->
+    <script is:inline>
+      (function () {
+        if (!('gtag' in window)) return;
+        var gtag = window.gtag;
+
+        // Outbound link tracking.
+        document.addEventListener('click', function (ev) {
+          var a = ev.target && ev.target.closest && ev.target.closest('a[href]');
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          if (!/^https?:\/\//i.test(href)) return;
+          try {
+            var url = new URL(href);
+            if (url.hostname === window.location.hostname) return;
+            gtag('event', 'click_outbound', {
+              link_url: href,
+              link_domain: url.hostname,
+              link_text: (a.textContent || '').trim().slice(0, 100),
+            });
+          } catch (_) { /* ignore */ }
+        }, { passive: true });
+
+        // Scroll depth milestones (25/50/75/100), once per page.
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement;
+          var scrolled = (window.scrollY || doc.scrollTop) + window.innerHeight;
+          var height = Math.max(doc.scrollHeight, doc.offsetHeight, document.body.scrollHeight);
+          if (height <= 0) return;
+          var pct = Math.min(100, Math.round((scrolled / height) * 100));
+          [25, 50, 75, 100].forEach(function (m) {
+            if (!fired[m] && pct >= m) {
+              fired[m] = true;
+              gtag('event', 'scroll_depth', { percent: m });
+            }
+          });
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        // Run once on load in case the page is short.
+        onScroll();
+      })();
+    </script>
   </body>
 </html>
