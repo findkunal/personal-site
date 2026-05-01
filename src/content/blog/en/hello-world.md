@@ -1,7 +1,7 @@
 ---
 title: "Why I'm writing again"
 description: "A small, deliberate corner of the internet for the things I actually think about: philosophy, technology, leadership, and the practices that hold them together."
-pubDate: 2026-04-29
+pubDate: 2026-04-28
 lang: en
 tags: ["intro", "meta"]
 ---
