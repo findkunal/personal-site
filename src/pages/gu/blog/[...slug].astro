@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Giscus from '../../../components/Giscus.astro';
 import Lyket from '../../../components/Lyket.astro';
+import Share from '../../../components/Share.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.lang === 'gu' && !data.draft);
@@ -21,6 +22,9 @@ const formatted = post.data.pubDate.toLocaleDateString('gu-IN', {
   month: 'long',
   day: 'numeric',
 });
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const postUrl = `${site}/gu/blog/${post.slug.replace(/^gu\//, '')}/`;
 ---
 <BaseLayout
   lang="gu"
@@ -38,6 +42,8 @@ const formatted = post.data.pubDate.toLocaleDateString('gu-IN', {
     )}
     <Content />
   </article>
+
+  <Share title={post.data.title} url={postUrl} lang="gu" />
 
   <Lyket id={post.slug.replace(/^gu\//, '')} namespace="gu" />
 
