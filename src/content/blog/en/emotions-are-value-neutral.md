@@ -6,6 +6,8 @@ lang: en
 tags: ["philosophy", "psychology", "self-awareness"]
 ---
 
+*This post was originally written on an [old blog of mine](https://paradoxofintrospection.blogspot.com/2021/01/emotions-are-value-neutral.html) back in January 2021. Moving it here, rewritten for clarity, with the core idea kept intact.*
+
 A few years ago I came across a line, shared by Mark Manson, that stopped me mid-scroll:
 
 > **Emotions are value neutral.**
