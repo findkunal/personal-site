@@ -38,7 +38,9 @@ const postUrl = `${site}/gu/blog/${post.slug.replace(/^gu\//, '')}/`;
     <h1>{post.data.title}</h1>
     <time datetime={post.data.pubDate.toISOString()}>{formatted}</time>
     {post.data.tags.length > 0 && (
-      <p class="post-meta">{post.data.tags.map((t) => `#${t}`).join(' ')}</p>
+      <ul class="tags post-meta" aria-label="Tags">
+        {post.data.tags.map((t) => <li class="tag">{t}</li>)}
+      </ul>
     )}
     <Content />
   </article>
