@@ -25,3 +25,16 @@ But it's also a lot like learning to drive. When someone first explains it to yo
 I think the same is true for everything that's ahead of these kids. The first job will feel overwhelming. So will the second. And then one day they'll be the ones a new graduate looks at and thinks, "how do they make it look so easy?"
 
 Anyway. It was a great day. A joyful one. We got to celebrate. And there are many more of these to come.
+
+---
+
+## Some food for thought
+
+A few questions I found myself turning over on the drive home. Maybe sit with them too.
+
+1. Which of your own milestones did you quietly skip because showing up felt like "more trouble than it was worth"? Whose cheering section were you really opting out of, theirs or your own?
+2. If you grew up without a sideline of people yelling for you, what does it cost you, even now, to believe someone is actually in your corner?
+3. The thing in your work life that feels impossible today, which version of it will you be doing on autopilot a year from now without noticing?
+4. If a degree won't be the thing that distinguishes these kids in five years, what is the equivalent question for *you* right now? What are you being graded on at work that nobody put in your job description?
+5. When was the last time you cheered, loudly and publicly, for someone who didn't strictly need it? And when was the last time someone did that for you, and you let yourself actually take it in?
+
